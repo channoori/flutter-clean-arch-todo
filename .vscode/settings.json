@@ -1,0 +1,10 @@
+{
+    "dart.analysisExcludedFolders": [
+        "build/"
+    ],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit"
+    }
+}
+  

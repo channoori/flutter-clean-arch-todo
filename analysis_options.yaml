@@ -1,0 +1,35 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    - avoid_web_libraries_in_flutter
+    - collection_methods_unrelated_type
+    - control_flow_in_finally
+    - deprecated_member_use_from_same_package
+    - empty_statements
+    - no_duplicate_case_values
+    - prefer_relative_imports
+    - throw_in_finally
+    - always_declare_return_types
+    - always_put_required_named_parameters_first
+    # - avoid_catches_without_on_clauses
+    - avoid_multiple_declarations_per_line
+    - avoid_unnecessary_containers
+    - avoid_unused_constructor_parameters
+    - flutter_style_todos
+    - prefer_asserts_in_initializer_lists
+    - prefer_asserts_with_message
+    - prefer_final_locals
+    - prefer_int_literals
+    - require_trailing_commas
+    - use_is_even_rather_than_modulo
+    - use_named_constants
+    - unnecessary_statements
+exclude:
+  - lib/**.freezed.dart
+  - lib/**.g.dart
+  - lib/generated
+  - lib/firebase_options.dart
+analyzer:
+  errors:
+    library_private_types_in_public_api: ignore
