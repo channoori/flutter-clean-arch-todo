@@ -4,7 +4,7 @@ import '../../../../core/di/injectable.dart';
 import '../../application/todo_controller.dart';
 import '../../domain/entities/todo.dart';
 
-final todoControllerProvider = AsyncNotifierProvider<TodoStateNotifier, List<Todo>>(TodoStateNotifier.new);
+final todoStateProvider = AsyncNotifierProvider<TodoStateNotifier, List<Todo>>(TodoStateNotifier.new);
 
 class TodoStateNotifier extends AsyncNotifier<List<Todo>> {
   late final TodoController _controller;

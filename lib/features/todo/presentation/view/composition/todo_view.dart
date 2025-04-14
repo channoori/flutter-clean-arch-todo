@@ -9,7 +9,7 @@ class TodoView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final todos = ref.watch(todoControllerProvider);
+    final todos = ref.watch(todoStateProvider);
 
     return todos.when(
       data: (list) => _TodoList(list: list),
@@ -32,7 +32,7 @@ class _TodoList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.read(todoControllerProvider.notifier);
+    final controller = ref.read(todoStateProvider.notifier);
     final inputController = TextEditingController();
 
     return Column(
@@ -43,6 +43,7 @@ class _TodoList extends ConsumerWidget {
             children: [
               Expanded(
                 child: TextField(
+                  key: const Key('todo_input'),
                   controller: inputController,
                   decoration: const InputDecoration(hintText: 'Add new todo'),
                 ),
