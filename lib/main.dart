@@ -9,6 +9,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  ///ENV Load
+  await dotenv.load();
+
   /// Supabase DB 초기화
   await Supabase.initialize(
     url: dotenv.env['SUPABASE_URL']!,

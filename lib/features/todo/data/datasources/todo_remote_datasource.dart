@@ -18,7 +18,7 @@ class TodoRemoteDataSourceImpl implements TodoRemoteDataSource {
 
   @override
   Future<List<Todo>> getTodos() async {
-    final response = await client.from('todos').select().order('create_at', ascending: false);
+    final response = await client.from('todos').select().order('created_at', ascending: false);
 
     return (response as List).map((json) => Todo.fromJson(json)).toList();
   }

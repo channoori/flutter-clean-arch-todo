@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/todo/presentation/view/todo_page.dart';
+
 final routerHandlerProvider = NotifierProvider<RouterHandler, RouterHandlerState>(
   () => RouterHandler(),
 );
@@ -23,23 +25,25 @@ class RouterHandler extends Notifier<RouterHandlerState> implements Listenable {
   RouterHandlerState build() => const RouterHandlerState();
 
   String? redirectLogic(GoRouterState state) {
-    final bool loggedIn = false; //TODO: 로그인 상태로 교체
-    final bool goingToLogin = state.matchedLocation == '/login';
+    // final bool loggedIn = false; //TODO: 로그인 상태로 교체
+    // final bool goingToLogin = state.matchedLocation == '/login';
 
-    if (!loggedIn && !goingToLogin) {
-      //TODO: 나중에 routeName으로 변경
-      return '/login';
-    }
+    // if (!loggedIn && !goingToLogin) {
+    //   //TODO: 나중에 routeName으로 변경
+    //   return '/login';
+    // }
 
-    if (loggedIn && goingToLogin) {
-      //TODO: 나중에 routeName을 변경
-      return '/home';
-    }
+    // if (loggedIn && goingToLogin) {
+    //   //TODO: 나중에 routeName을 변경
+    //   return '/home';
+    // }
 
     return null;
   }
 
-  List<GoRoute> get routes => [];
+  List<GoRoute> get routes => [
+        ...authRoutes,
+      ];
 
   void refresh() {
     _notifier.value = !_notifier.value; // toggle to trigger listener
@@ -47,5 +51,10 @@ class RouterHandler extends Notifier<RouterHandlerState> implements Listenable {
   }
 
   /// 모듈별로 route나누기
-  List<GoRoute> authRoutes = [];
+  List<GoRoute> authRoutes = [
+    GoRoute(
+      path: TodoPage.routeName,
+      builder: (context, state) => const TodoPage(),
+    ),
+  ];
 }

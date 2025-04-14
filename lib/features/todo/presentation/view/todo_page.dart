@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'composition/todo_view.dart';
 
 class TodoPage extends StatelessWidget {
+  static String get routeName => '/todo_page';
   const TodoPage({super.key});
 
   @override

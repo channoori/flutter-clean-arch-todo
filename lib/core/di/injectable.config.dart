@@ -43,6 +43,8 @@ extension GetItInjectableX on _i174.GetIt {
     );
     final dIModule = _$DIModule();
     gh.lazySingleton<_i454.SupabaseClient>(() => dIModule.supabaseClient);
+    gh.lazySingleton<_i946.TodoRemoteDataSource>(
+        () => _i946.TodoRemoteDataSourceImpl(gh<_i454.SupabaseClient>()));
     gh.lazySingleton<_i352.TodoRepository>(
         () => _i516.TodoRepositoryImpl(gh<_i946.TodoRemoteDataSource>()));
     gh.factory<_i895.AddTodo>(() => _i895.AddTodo(gh<_i352.TodoRepository>()));
